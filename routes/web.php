@@ -23,4 +23,10 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('posts', 'PostController');
 
-Route::resource('posts', 'PostController');
+Route::resource('periods', 'PeriodController');
+
+Route::resource('contentTypes', 'ContentTypeController');
+
+Route::resource('purchaseModels', 'PurchaseModelController');
+
+Route::resource('socials', 'SocialController');

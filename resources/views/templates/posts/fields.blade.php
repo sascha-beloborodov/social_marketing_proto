@@ -1,19 +1,7 @@
-<!-- Period Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('period_id', 'Period Id:') !!}
-    {!! Form::number('period_id', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Url Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('url', 'Url:') !!}
-    {!! Form::textarea('url', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Content Type Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('content_type_id', 'Content Type Id:') !!}
-    {!! Form::number('content_type_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('url', 'Url:') !!}
+    {!! Form::text('url', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Reach Field -->
@@ -46,12 +34,6 @@
     {!! Form::number('shares', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Comments Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('comments', 'Comments:') !!}
-    {!! Form::number('comments', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Group In Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('group_in', 'Group In:') !!}
@@ -76,10 +58,28 @@
     {!! Form::number('transactions', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Model Id Field -->
+<!-- Content Type Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('model_id', 'Model Id:') !!}
-    {!! Form::number('model_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('content_type_id', 'Content Type Id:') !!}
+    {!! Form::number('content_type_id', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Period Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('period_id', 'Period Id:') !!}
+    {!! Form::number('period_id', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Purchase Model Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('purchase_model_id', 'Purchase Model Id:') !!}
+    {!! Form::number('purchase_model_id', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Social Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('social_id', 'Social Id:') !!}
+    {!! Form::number('social_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

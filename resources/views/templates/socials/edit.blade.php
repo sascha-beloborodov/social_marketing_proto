@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Post
+            Social
         </h1>
    </section>
    <div class="content">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'patch']) !!}
+                   {!! Form::model($social, ['route' => ['socials.update', $social->id], 'method' => 'patch']) !!}
 
-                        @include('templates.posts.fields')
+                        @include('templates.socials.fields')
 
                    {!! Form::close() !!}
                </div>

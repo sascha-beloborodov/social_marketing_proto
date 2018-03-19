@@ -4,22 +4,10 @@
     <p>{!! $post->id !!}</p>
 </div>
 
-<!-- Period Id Field -->
-<div class="form-group">
-    {!! Form::label('period_id', 'Period Id:') !!}
-    <p>{!! $post->period_id !!}</p>
-</div>
-
 <!-- Url Field -->
 <div class="form-group">
     {!! Form::label('url', 'Url:') !!}
     <p>{!! $post->url !!}</p>
-</div>
-
-<!-- Content Type Id Field -->
-<div class="form-group">
-    {!! Form::label('content_type_id', 'Content Type Id:') !!}
-    <p>{!! $post->content_type_id !!}</p>
 </div>
 
 <!-- Reach Field -->
@@ -52,12 +40,6 @@
     <p>{!! $post->shares !!}</p>
 </div>
 
-<!-- Comments Field -->
-<div class="form-group">
-    {!! Form::label('comments', 'Comments:') !!}
-    <p>{!! $post->comments !!}</p>
-</div>
-
 <!-- Group In Field -->
 <div class="form-group">
     {!! Form::label('group_in', 'Group In:') !!}
@@ -82,9 +64,39 @@
     <p>{!! $post->transactions !!}</p>
 </div>
 
-<!-- Model Id Field -->
+<!-- Content Type Id Field -->
 <div class="form-group">
-    {!! Form::label('model_id', 'Model Id:') !!}
-    <p>{!! $post->model_id !!}</p>
+    {!! Form::label('content_type_id', 'Content Type Id:') !!}
+    <p>{!! $post->content_type_id !!}</p>
+</div>
+
+<!-- Period Id Field -->
+<div class="form-group">
+    {!! Form::label('period_id', 'Period Id:') !!}
+    <p>{!! $post->period_id !!}</p>
+</div>
+
+<!-- Purchase Model Id Field -->
+<div class="form-group">
+    {!! Form::label('purchase_model_id', 'Purchase Model Id:') !!}
+    <p>{!! $post->purchase_model_id !!}</p>
+</div>
+
+<!-- Social Id Field -->
+<div class="form-group">
+    {!! Form::label('social_id', 'Social Id:') !!}
+    <p>{!! $post->social_id !!}</p>
+</div>
+
+<!-- Created At Field -->
+<div class="form-group">
+    {!! Form::label('created_at', 'Created At:') !!}
+    <p>{!! $post->created_at !!}</p>
+</div>
+
+<!-- Updated At Field -->
+<div class="form-group">
+    {!! Form::label('updated_at', 'Updated At:') !!}
+    <p>{!! $post->updated_at !!}</p>
 </div>
 

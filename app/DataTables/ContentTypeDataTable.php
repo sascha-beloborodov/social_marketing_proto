@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\Post;
+use App\Models\ContentType;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class PostDataTable extends DataTable
+class ContentTypeDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,7 +18,7 @@ class PostDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'templates.posts.datatables_actions');
+        return $dataTable->addColumn('action', 'templates.content_types.datatables_actions');
     }
 
     /**
@@ -27,7 +27,7 @@ class PostDataTable extends DataTable
      * @param \App\Models\Post $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Post $model)
+    public function query(ContentType $model)
     {
         return $model->newQuery();
     }
@@ -46,7 +46,6 @@ class PostDataTable extends DataTable
             ->parameters([
                 'dom'     => 'Bfrtip',
                 'order'   => [[0, 'desc']],
-                'scrollX' => true,
                 'buttons' => [
                     'create',
                     'export',
@@ -54,15 +53,6 @@ class PostDataTable extends DataTable
                     'reset',
                     'reload',
                 ],
-                'preDrawCallback' => "function () {
-                    console.log(this.language);
-                }",
-                'initComplete' => "function () {
-                    this.api().columns().every(function (a, b) {
-                        console.log(a);
-                        console.log(b);
-                    });
-                }",
             ]);
     }
 
@@ -74,20 +64,7 @@ class PostDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'url',
-            'reach',
-            'impressions',
-            'clicks',
-            'likes',
-            'shares',
-            'group_in',
-            'site_visits',
-            'purchase_intentions',
-            'transactions',
-            'contentType.name',
-            'period.name',
-            'purchaseModel.name',
-            'social_id'
+            'name'
         ];
     }
 
@@ -98,6 +75,6 @@ class PostDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'postsdatatable_' . time();
+        return 'content_typesdatatable_' . time();
     }
 }

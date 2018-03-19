@@ -7,25 +7,26 @@ use Eloquent as Model;
 /**
  * Class Post
  * @package App\Models
- * @version March 16, 2018, 1:48 am UTC
+ * @version March 18, 2018, 1:31 pm UTC
  *
- * @property \App\Models\BuyModel buyModel
  * @property \App\Models\ContentType contentType
  * @property \App\Models\Period period
- * @property integer period_id
+ * @property \App\Models\PurchaseModel purchaseModel
+ * @property \App\Models\Social social
  * @property string url
- * @property integer content_type_id
  * @property integer reach
  * @property integer impressions
  * @property integer clicks
  * @property integer likes
  * @property integer shares
- * @property integer comments
  * @property integer group_in
  * @property integer site_visits
  * @property integer purchase_intentions
  * @property integer transactions
- * @property integer model_id
+ * @property integer content_type_id
+ * @property integer period_id
+ * @property integer purchase_model_id
+ * @property integer social_id
  */
 class Post extends Model
 {
@@ -38,20 +39,20 @@ class Post extends Model
 
 
     public $fillable = [
-        'period_id',
         'url',
-        'content_type_id',
         'reach',
         'impressions',
         'clicks',
         'likes',
         'shares',
-        'comments',
         'group_in',
         'site_visits',
         'purchase_intentions',
         'transactions',
-        'model_id'
+        'content_type_id',
+        'period_id',
+        'purchase_model_id',
+        'social_id'
     ];
 
     /**
@@ -61,20 +62,20 @@ class Post extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'period_id' => 'integer',
         'url' => 'string',
-        'content_type_id' => 'integer',
         'reach' => 'integer',
         'impressions' => 'integer',
         'clicks' => 'integer',
         'likes' => 'integer',
         'shares' => 'integer',
-        'comments' => 'integer',
         'group_in' => 'integer',
         'site_visits' => 'integer',
         'purchase_intentions' => 'integer',
         'transactions' => 'integer',
-        'model_id' => 'integer'
+        'content_type_id' => 'integer',
+        'period_id' => 'integer',
+        'purchase_model_id' => 'integer',
+        'social_id' => 'integer'
     ];
 
     /**
@@ -85,14 +86,6 @@ class Post extends Model
     public static $rules = [
         
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function buyModel()
-    {
-        return $this->belongsTo(\App\Models\BuyModel::class);
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -108,5 +101,21 @@ class Post extends Model
     public function period()
     {
         return $this->belongsTo(\App\Models\Period::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function purchaseModel()
+    {
+        return $this->belongsTo(\App\Models\PurchaseModel::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function social()
+    {
+        return $this->belongsTo(\App\Models\Social::class);
     }
 }
