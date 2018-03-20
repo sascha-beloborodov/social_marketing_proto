@@ -48,9 +48,12 @@ class CreateBaseTables extends Migration
             $table->integer('reach')->default(0);
             $table->integer('impressions')->default(0);
             $table->integer('clicks')->default(0);
+
             $table->integer('likes')->default(0);
             $table->integer('shares')->default(0);
+            $table->integer('comments')->default(0);
             $table->integer('group_in')->default(0);
+
             $table->integer('site_visits')->default(0);
             $table->integer('purchase_intentions')->default(0);
             $table->integer('transactions')->default(0);

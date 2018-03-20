@@ -29,7 +29,7 @@ class PostDataTable extends DataTable
      */
     public function query(Post $model)
     {
-        return $model->newQuery();
+        return $model->with('contentType', 'period', 'purchaseModel')->newQuery();
     }
 
     /**
@@ -75,19 +75,27 @@ class PostDataTable extends DataTable
     {
         return [
             'url',
+            'content_type.name',
+            'period.name',
+            'purchase_model.name',
             'reach',
             'impressions',
             'clicks',
             'likes',
             'shares',
+            'comments',
             'group_in',
             'site_visits',
             'purchase_intentions',
             'transactions',
-            'contentType.name',
-            'period.name',
-            'purchaseModel.name',
-            'social_id'
+//            'social_id',
+            'er_comments',
+            'er_likes',
+            'er_shares',
+            'calculation_group_in',
+            'calculation_visits',
+            'calculation_purchase',
+            'calculation_transactions'
         ];
     }
 

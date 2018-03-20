@@ -60,27 +60,27 @@
 
 <!-- Content Type Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('content_type_id', 'Content Type Id:') !!}
-    {!! Form::number('content_type_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('content_type_id', 'Content Type:') !!}
+    {!! Form::select('content_type_id', \App\Models\ContentType::pluck('name', 'id'), null, ['class' => 'form-control']); !!}
 </div>
 
 <!-- Period Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('period_id', 'Period Id:') !!}
-    {!! Form::number('period_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('period_id', 'Period:') !!}
+    {!! Form::select('period_id', \App\Models\Period::pluck('name', 'id'), null, ['class' => 'form-control']); !!}
 </div>
 
 <!-- Purchase Model Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('purchase_model_id', 'Purchase Model Id:') !!}
-    {!! Form::number('purchase_model_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('purchase_model_id', 'Purchase Model:') !!}
+    {!! Form::select('purchase_model_id', \App\Models\PurchaseModel::pluck('name', 'id'), null, ['class' => 'form-control']); !!}
 </div>
 
 <!-- Social Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('social_id', 'Social Id:') !!}
-    {!! Form::number('social_id', null, ['class' => 'form-control']) !!}
-</div>
+{{--<div class="form-group col-sm-6">--}}
+    {{--{!! Form::label('social_id', 'Social Id:') !!}--}}
+    {{--{!! Form::number('social_id', null, ['class' => 'form-control']) !!}--}}
+{{--</div>--}}
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

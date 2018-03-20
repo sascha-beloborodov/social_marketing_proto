@@ -17,6 +17,7 @@ use Eloquent as Model;
  * @property integer reach
  * @property integer impressions
  * @property integer clicks
+ * @property integer comments
  * @property integer likes
  * @property integer shares
  * @property integer group_in
@@ -44,6 +45,7 @@ class Post extends Model
         'impressions',
         'clicks',
         'likes',
+        'comments',
         'shares',
         'group_in',
         'site_visits',
@@ -68,6 +70,7 @@ class Post extends Model
         'clicks' => 'integer',
         'likes' => 'integer',
         'shares' => 'integer',
+        'comments' => 'integer',
         'group_in' => 'integer',
         'site_visits' => 'integer',
         'purchase_intentions' => 'integer',
@@ -86,6 +89,69 @@ class Post extends Model
     public static $rules = [
         
     ];
+
+    protected $appends = [
+        'er_comments', 'er_likes', 'er_shares',
+
+        'calculation_group_in', 'calculation_visits', 'calculation_purchase', 'calculation_transactions'
+    ];
+
+    public function getCalculationGroupInAttribute()
+    {
+        return $this->isImpressionZero() ? 0 : number_format($this->group_in / $this->impressions, 5, '.', ' ');
+    }
+
+    public function getCalculationVisitsAttribute()
+    {
+        return $this->isImpressionZero() ? 0 : number_format($this->site_visits / $this->impressions, 5, '.', ' ');
+    }
+
+    public function getCalculationPurchaseAttribute()
+    {
+        return $this->isImpressionZero() ? 0 : number_format($this->purchase_intentions / $this->impressions, 5, '.', ' ');
+    }
+
+    public function getCalculationTransactionsAttribute()
+    {
+        return $this->isImpressionZero() ? 0 : number_format($this->transactions / $this->impressions, 5, '.', ' ');
+    }
+
+    /**
+     * @return float|int
+     */
+    public function getErCommentsAttribute()
+    {
+        return $this->reachedZero() ? 0 : number_format($this->comments / $this->reach, 5, '.', ' ');
+    }
+
+    /**
+     * @return float|int
+     */
+    public function getErLikesAttribute()
+    {
+        return $this->reachedZero() ? 0 : number_format($this->likes / $this->reach, 5, '.', ' ');
+    }
+
+    /**
+     * @return float|int
+     */
+    public function getErSharesAttribute()
+    {
+        return $this->reachedZero() ? 0 : number_format($this->shares / $this->reach, 5, '.', ' ');
+    }
+
+    /**
+     * @return bool
+     */
+    public function reachedZero()
+    {
+        return $this->reach == 0;
+    }
+
+    public function isImpressionZero()
+    {
+
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

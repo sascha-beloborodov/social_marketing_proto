@@ -91,11 +91,12 @@ CREATE TABLE `posts` (
 	`social_id` Int( 10 ) UNSIGNED NULL,
 	`created_at` Timestamp NULL,
 	`updated_at` Timestamp NULL,
+	`comments` Int( 11 ) NOT NULL DEFAULT '0',
 	PRIMARY KEY ( `id` ) )
 CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci
 ENGINE = InnoDB
-AUTO_INCREMENT = 1;
+AUTO_INCREMENT = 2;
 -- -------------------------------------------------------------
 -- ---------------------------------------------------------
 
@@ -175,6 +176,8 @@ INSERT INTO `periods`(`id`,`name`,`created_at`,`updated_at`) VALUES ( '2', '2016
 
 
 -- Dump data of "posts" ------------------------------------
+INSERT INTO `posts`(`id`,`url`,`reach`,`impressions`,`clicks`,`likes`,`shares`,`group_in`,`site_visits`,`purchase_intentions`,`transactions`,`content_type_id`,`period_id`,`purchase_model_id`,`social_id`,`created_at`,`updated_at`,`comments`) VALUES ( '1', 'Cupiditate a vero qui nihil similique veniam dolorem harum velit commodo quod', '59', '88', '74', '45', '4', '98', '9', '24', '36', '1', '2', '2', NULL, '2018-03-19 22:34:11', '2018-03-19 22:34:11', '0' );
+INSERT INTO `posts`(`id`,`url`,`reach`,`impressions`,`clicks`,`likes`,`shares`,`group_in`,`site_visits`,`purchase_intentions`,`transactions`,`content_type_id`,`period_id`,`purchase_model_id`,`social_id`,`created_at`,`updated_at`,`comments`) VALUES ( '2', 'Esse ullam similique velit repudiandae perferendis consequuntur cupiditate in dolor', '51', '50', '77', '74', '23', '46', '53', '71', '75', '1', '2', '2', NULL, '2018-03-20 08:40:48', '2018-03-20 08:40:48', '0' );
 -- ---------------------------------------------------------
 
 
